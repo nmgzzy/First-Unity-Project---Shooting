@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
-public class Enemy : MonoBehaviour
+public class Enemy : LivingEntity
 {
     UnityEngine.AI.NavMeshAgent pathfinder;
     Transform target;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         // StartCoroutine(UpdatePath());
         InvokeRepeating("UpdatePath", 0, 0.25f);
-
     }
 
     // void Update()

@@ -7,14 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     Vector3 velocity;
     Rigidbody myRigitbody;
-    // Start is called before the first frame update
     void Start()
     {
         myRigitbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    public void FixedUpdate()
+    void FixedUpdate()
     {
         myRigitbody.MovePosition(myRigitbody.position + velocity * Time.fixedDeltaTime);
     }
