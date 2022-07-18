@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         }
 
         //开枪输入
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButton(0)){
             gunController.Shoot();
         }
     }

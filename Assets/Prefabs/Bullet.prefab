@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLifeTime: 5
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5847919686359526800
 GameObject:
   m_ObjectHideFlags: 0
