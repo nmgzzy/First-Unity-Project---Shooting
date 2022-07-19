@@ -46,6 +46,7 @@
      <Compile Include="Assets/Scripts/PlayerController.cs" />
      <Compile Include="Assets/Scripts/IDamageable.cs" />
      <Compile Include="Assets/Scripts/LivingEntity.cs" />
+     <Compile Include="Assets/Scripts/Spawner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

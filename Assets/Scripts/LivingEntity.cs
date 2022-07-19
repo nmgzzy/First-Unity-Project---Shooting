@@ -7,6 +7,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public float startingHealth = 5;
     protected float heath;
     protected bool dead = false;
+    public event System.Action OnDeath;
     public void TakeHit(float damage, RaycastHit hit)
     {
         heath -= damage;
@@ -17,6 +18,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected void Die() 
     {
         dead = true;
+        if (OnDeath != null) {
+            OnDeath();
+        }
         GameObject.Destroy(this.gameObject);
     }
     // Start is called before the first frame update

@@ -7,11 +7,15 @@ public class Projectile : MonoBehaviour
     float speed = 10;
     public float maxLifeTime = 5;
     public LayerMask collisionMask;
-    float damage = 1;
+    float damage = 5;
 
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+    public void SetDamage(float newDamage)
+    {
+        damage = newDamage;
     }
 
     void Start()

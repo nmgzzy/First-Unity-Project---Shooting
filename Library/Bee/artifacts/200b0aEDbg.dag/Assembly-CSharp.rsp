@@ -359,6 +359,7 @@
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Projectile.cs"
+"Assets/Scripts/Spawner.cs"
 -langversion:9.0
 
 /deterministic
