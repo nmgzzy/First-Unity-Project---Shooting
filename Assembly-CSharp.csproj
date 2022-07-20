@@ -40,13 +40,13 @@
      <Compile Include="Assets/Scripts/GunController.cs" />
      <Compile Include="Assets/Scripts/Projectile.cs" />
      <Compile Include="Assets/Scripts/Enemy.cs" />
+     <Compile Include="Assets/Scripts/IDamageable.cs" />
      <Compile Include="Assets/Scripts/Gun.cs" />
+     <Compile Include="Assets/Scripts/LivingEntity.cs" />
      <Compile Include="Assets/Low Poly Guns/Scripts/GunView.cs" />
+     <Compile Include="Assets/Scripts/Spawner.cs" />
      <Compile Include="Assets/Scripts/Player.cs" />
      <Compile Include="Assets/Scripts/PlayerController.cs" />
-     <Compile Include="Assets/Scripts/IDamageable.cs" />
-     <Compile Include="Assets/Scripts/LivingEntity.cs" />
-     <Compile Include="Assets/Scripts/Spawner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
