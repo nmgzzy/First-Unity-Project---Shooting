@@ -356,6 +356,7 @@
 "Assets/Scripts/GunController.cs"
 "Assets/Scripts/IDamageable.cs"
 "Assets/Scripts/LivingEntity.cs"
+"Assets/Scripts/MapGenerator.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Projectile.cs"
