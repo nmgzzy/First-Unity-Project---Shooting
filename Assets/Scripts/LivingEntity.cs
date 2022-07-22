@@ -8,13 +8,20 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected float heath;
     protected bool dead = false;
     public event System.Action OnDeath;
+
     public void TakeHit(float damage, RaycastHit hit)
+    {
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float damage)
     {
         heath -= damage;
         if(heath <= 0 && !dead) {
             Die();
         }
     }
+
     protected void Die() 
     {
         dead = true;
