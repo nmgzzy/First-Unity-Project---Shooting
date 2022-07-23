@@ -349,8 +349,8 @@
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/Low Poly Guns/Scripts/GunsMenu.cs"
-"Assets/Low Poly Guns/Scripts/GunView.cs"
+"Assets/Guns/Scripts/GunsMenu.cs"
+"Assets/Guns/Scripts/GunView.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Gun.cs"
 "Assets/Scripts/GunController.cs"
@@ -361,6 +361,7 @@
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Projectile.cs"
 "Assets/Scripts/Spawner.cs"
+"Assets/Scripts/Utility.cs"
 -langversion:9.0
 
 /deterministic
