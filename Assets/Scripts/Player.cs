@@ -42,8 +42,8 @@ public class Player : LivingEntity
             gunController.Shoot();
         }
 
-        if (Input.GetButtonDown("Escape")) {
-            Application.Quit();
-        }
+        // if (Input.GetButtonDown("Escape")) {
+        //     Application.Quit();
+        // }
     }
 }

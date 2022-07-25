@@ -18,7 +18,7 @@ public class Enemy : LivingEntity
     float myCollisionRadius;
     float targetCollisionRadius;
     bool hasTarget = true;
-    float damage = 10;
+    public float damage = 10;
 
     protected override void Start()
     {
