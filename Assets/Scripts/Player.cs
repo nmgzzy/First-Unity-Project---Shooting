@@ -7,10 +7,12 @@ using UnityEngine;
 public class Player : LivingEntity
 {
     public float moveSpeed = 5;
+    public float jumpForce = 5;
     PlayerController controller;
     Camera viewCamera;
     private Plane plane = new Plane(Vector3.up, new Vector3(0, 1, 0));
     GunController gunController;
+    Rigidbody body;
 
     protected override void Start()
     {
@@ -18,6 +20,7 @@ public class Player : LivingEntity
         controller = GetComponent<PlayerController>();
         gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
+        body = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -42,8 +45,19 @@ public class Player : LivingEntity
             gunController.Shoot();
         }
 
-        // if (Input.GetButtonDown("Escape")) {
-        //     Application.Quit();
-        // }
+        //跳跃
+        if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < 1.05f) {
+            body.AddForce(Vector3.up * jumpForce);
+        }
+
+        //退出游戏
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            GameUI.ExitGame();
+        }
+
+        //重启游戏
+        if (Input.GetKeyDown(KeyCode.F4)) {
+            GameUI.StartNewGame();
+        }
     }
 }

@@ -57,13 +57,28 @@ public class MapGenerator : MonoBehaviour
     Queue<Coord> shuffledOpenTileCoords;
     Transform[,] tileMap;
 
-    void Start()
+    void Awake()
     {
+        FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
+    }
+
+    void OnNewWave(int waveNumber)
+    {
+        mapIndex = waveNumber;
         GenerateMap();
     }
+
     public void GenerateMap()
     {
-        currentMap = maps[mapIndex];
+        if (mapIndex < maps.GetLength(0))
+        {
+            currentMap = maps[mapIndex];
+        }
+        else
+        {
+            Debug.Log("maps size should greater than waves size.");
+            return;
+        }
 
         tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
         System.Random prng = new System.Random(currentMap.seed);
@@ -184,6 +199,16 @@ public class MapGenerator : MonoBehaviour
     {
         return new Vector3(-currentMap.mapSize.x / 2f + 0.5f + x, 0, -currentMap.mapSize.y / 2f + 0.5f + y) * tileSize;
     }
+
+    public Transform GetTileFromPosition(Vector3 position)
+    {
+        int x = Mathf.RoundToInt(position.x / tileSize + (currentMap.mapSize.x - 1) / 2f);
+        int y = Mathf.RoundToInt(position.z / tileSize + (currentMap.mapSize.y - 1) / 2f);
+        x = Mathf.Clamp(x, 0, tileMap.GetLength(0) - 1);
+        y = Mathf.Clamp(y, 0, tileMap.GetLength(1) - 1);
+        return tileMap[x, y];
+    }
+
     Coord GetRandomCoord(Queue<Coord> shuffledTileCoords)
     {
         Coord randomCoord = shuffledTileCoords.Dequeue();

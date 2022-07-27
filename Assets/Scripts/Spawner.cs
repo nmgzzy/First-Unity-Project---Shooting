@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour
     public Wave[] waves;
     public Enemy enemy;
 
+    LivingEntity playerEntity;
+    Transform playerT;
+
     Wave currentWave;
     int currentWaveNumber;
 
@@ -14,9 +17,13 @@ public class Spawner : MonoBehaviour
     int enemiesRemainingAlive;
     float nextSpawnTime;
     MapGenerator map;
+    public event System.Action<int> OnNewWave;
 
     void Start()
     {
+		playerEntity = FindObjectOfType<Player> ();
+        playerT = playerEntity.transform;
+
         map = FindObjectOfType<MapGenerator>();
         NextWave();
     }
@@ -28,9 +35,7 @@ public class Spawner : MonoBehaviour
         {
             enemiesRemainingToSpawn--;
             nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
-
             StartCoroutine(SpawnEnemy());
-            
         }
     }
 
@@ -65,16 +70,26 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    void ResetPlayer() {
+		playerT.position = map.GetTileFromPosition (Vector3.zero).position + Vector3.up * 3;
+        playerEntity.Revive();
+	}
+
     void NextWave()
     {
-        currentWaveNumber++;
-        if (currentWaveNumber - 1 < waves.Length)
+        if (currentWaveNumber < waves.Length)
         {
-            currentWave = waves[currentWaveNumber - 1];
+            currentWave = waves[currentWaveNumber];
 
             enemiesRemainingToSpawn = currentWave.enemyCount;
             enemiesRemainingAlive = enemiesRemainingToSpawn;
+
+            if (OnNewWave != null) {
+				OnNewWave(currentWaveNumber);
+			}
+			ResetPlayer();
         }
+        currentWaveNumber++;
     }
 
     [System.Serializable]

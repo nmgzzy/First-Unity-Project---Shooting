@@ -17,7 +17,7 @@ public class Enemy : LivingEntity
     float nextAttackTime;
     float myCollisionRadius;
     float targetCollisionRadius;
-    bool hasTarget = true;
+    bool hasTarget;
     public float damage = 10;
 
     protected override void Start()
@@ -30,6 +30,7 @@ public class Enemy : LivingEntity
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
             currentState = State.Chasing;
+            hasTarget = true;
             targetEntity = target.GetComponent<LivingEntity>();
             targetEntity.OnDeath += OnTargetDeath;
             myCollisionRadius = GetComponent<CapsuleCollider>().radius;

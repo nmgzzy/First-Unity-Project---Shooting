@@ -131,8 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 7456470034519223404}
   projectile: {fileID: 5192875022876910444, guid: 153914b64c01f40a38f3f66b1f1f7613, type: 3}
-  msBetweenShots: 200
+  msBetweenShots: 160
   muzzleVelocity: 20
+  damage: 5
   audioClip: {fileID: 8300000, guid: 33f43dfea6b794f4a92ae33b8a495740, type: 3}
 --- !u!82 &1322357617531891235
 AudioSource:

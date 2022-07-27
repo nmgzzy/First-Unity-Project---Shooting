@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, IDamageable
 {
-    public float startingHealth = 5;
+    public float startingHealth = 100;
     protected float heath;
     protected bool dead = false;
     public event System.Action OnDeath;
@@ -22,6 +22,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
     }
 
+    public void Revive()
+    {
+        heath = startingHealth;
+        dead = false;
+    }
+
     protected void Die() 
     {
         dead = true;
@@ -30,13 +36,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
         }
         GameObject.Destroy(this.gameObject);
     }
-    // Start is called before the first frame update
+
     protected virtual void Start()
     {
         heath = startingHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
