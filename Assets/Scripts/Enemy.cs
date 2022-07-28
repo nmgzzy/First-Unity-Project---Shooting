@@ -7,6 +7,7 @@ public class Enemy : LivingEntity
 {
     UnityEngine.AI.NavMeshAgent pathfinder;
     public enum State { Idle, Chasing, Attacking };
+    public ParticleSystem deathEffect;
     State currentState;
     Transform target;
     LivingEntity targetEntity;
@@ -105,6 +106,14 @@ public class Enemy : LivingEntity
                 pathfinder.SetDestination(targetPosition);
             }
         }
+    }
+
+    public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
+    {
+        if (damage >= heath) {
+            Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), 3);
+        }
+        base.TakeHit(damage, hitPoint, hitDirection);
     }
 
 }

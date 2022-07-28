@@ -9,12 +9,12 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected bool dead = false;
     public event System.Action OnDeath;
 
-    public void TakeHit(float damage, RaycastHit hit)
+    public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
         TakeDamage(damage);
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         heath -= damage;
         if(heath <= 0 && !dead) {

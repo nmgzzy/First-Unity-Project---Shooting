@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public Wave[] waves;
     public Enemy enemy;
+    Transform enemies;
 
     LivingEntity playerEntity;
     Transform playerT;
@@ -23,7 +24,7 @@ public class Spawner : MonoBehaviour
     {
 		playerEntity = FindObjectOfType<Player> ();
         playerT = playerEntity.transform;
-
+        enemies = GameObject.Find("Enemies").transform;
         map = FindObjectOfType<MapGenerator>();
         NextWave();
     }
@@ -56,7 +57,7 @@ public class Spawner : MonoBehaviour
             yield return null;
         }
         tileMat.color = initialColor;
-        Enemy spawnedEnemy = Instantiate(enemy, randomTile.position + Vector3.up, Quaternion.identity) as Enemy;
+        Enemy spawnedEnemy = Instantiate(enemy, randomTile.position + Vector3.up, Quaternion.identity, enemies) as Enemy;
         spawnedEnemy.OnDeath += OnEnemyDeath;
     }
 
