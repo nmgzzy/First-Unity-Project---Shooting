@@ -81,6 +81,9 @@ public class MapGenerator : MonoBehaviour
         }
 
         tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
+        #if !UNITY_EDITOR
+            currentMap.seed = unchecked((int)System.DateTime.Now.Ticks);
+		#endif
         System.Random prng = new System.Random(currentMap.seed);
         GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, 0.02f, currentMap.mapSize.y * tileSize);
         //init allTileCoords

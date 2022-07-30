@@ -68,15 +68,5 @@ public class Player : LivingEntity
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < 1.05f) {
             body.AddForce(Vector3.up * jumpForce);
         }
-
-        //退出游戏
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            GameUI.ExitGame();
-        }
-
-        //重启游戏
-        if (Input.GetKeyDown(KeyCode.F4)) {
-            GameUI.StartNewGame();
-        }
     }
 }

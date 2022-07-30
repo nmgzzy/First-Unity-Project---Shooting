@@ -2,14 +2,16 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Enemy
-    - GameUI
+    - GameOverUI
     - Gun
     - GunController
     - LivingEntity
     - MapGenerator
+    - MuzzleFlash
     - Player
     - PlayerController
     - Projectile
+    - Shell
     - Spawner
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -18,6 +20,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -49,6 +52,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
+    - TMPro.VertexGradient
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
@@ -68,13 +72,16 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: GameUI
+    fullTypeName: GameOverUI
     methodName: StartNewGame
   - assembly: Assembly-CSharp
-    fullTypeName: GameUI
+    fullTypeName: GameOverUI
+    methodName: PrepareNewGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GameOverUI
     methodName: ExitGame
   sceneClasses:
-    Assets/Scenes/ShootingGame.unity:
+    Assets/Scenes/MapGenerator.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -95,6 +102,83 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2218}
+    - Class: 114
+      Script: {instanceID: 2656}
+    - Class: 114
+      Script: {instanceID: 2882}
+    - Class: 114
+      Script: {instanceID: 3184}
+    - Class: 114
+      Script: {instanceID: 4228}
+    - Class: 114
+      Script: {instanceID: 4260}
+    - Class: 114
+      Script: {instanceID: 4528}
+    - Class: 114
+      Script: {instanceID: 5294}
+    - Class: 114
+      Script: {instanceID: 5902}
+    - Class: 114
+      Script: {instanceID: 6054}
+    - Class: 114
+      Script: {instanceID: 6396}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 208
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    Assets/Scenes/ShootingGame.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -114,47 +198,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1560}
+      Script: {instanceID: 1598}
     - Class: 114
-      Script: {instanceID: 2180}
+      Script: {instanceID: 2360}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2440}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2618}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 2844}
+      Script: {instanceID: 3184}
     - Class: 114
-      Script: {instanceID: 3146}
+      Script: {instanceID: 3514}
     - Class: 114
-      Script: {instanceID: 3476}
+      Script: {instanceID: 3808}
     - Class: 114
-      Script: {instanceID: 3770}
+      Script: {instanceID: 4004}
     - Class: 114
-      Script: {instanceID: 3966}
+      Script: {instanceID: 4228}
     - Class: 114
-      Script: {instanceID: 4220}
+      Script: {instanceID: 5320}
     - Class: 114
-      Script: {instanceID: 4488}
+      Script: {instanceID: 5572}
     - Class: 114
-      Script: {instanceID: 5254}
+      Script: {instanceID: 5902}
     - Class: 114
-      Script: {instanceID: 5280}
+      Script: {instanceID: 6396}
     - Class: 114
-      Script: {instanceID: 5532}
+      Script: {instanceID: 7618}
     - Class: 114
-      Script: {instanceID: 5862}
+      Script: {instanceID: 7952}
     - Class: 114
-      Script: {instanceID: 6356}
+      Script: {instanceID: 35552}
     - Class: 114
-      Script: {instanceID: 7578}
-    - Class: 114
-      Script: {instanceID: 7912}
-    - Class: 114
-      Script: {instanceID: 25640}
+      Script: {instanceID: 70604}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -169,6 +249,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
     - Class: 208
       Script: {instanceID: 0}
     - Class: 213
@@ -180,6 +264,8 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -286,7 +372,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 33241effba2b999d090b16608449e651
+      Hash: b63a6e62288e6890794325f9a1bc25a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GunController
@@ -346,7 +432,7 @@ ScriptsOnlyBuild:
     className: CoroutineRunner
   - hash:
       serializedVersion: 2
-      Hash: 2777bd28492e9f60e226c7efa74e8495
+      Hash: c84a0ed939ef8a771ce0a02446b6f5e7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -472,7 +558,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: bbd88b6aca40d3870ebc9081c26b14b1
+      Hash: 5cf82c95bb9595f87f0c3e5396ee67ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun
@@ -578,6 +664,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: b9b10332400bd9f3a7ce85d3bc2d36ac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOverUI
   - hash:
       serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
@@ -1024,11 +1116,18 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: b9b10332400bd9f3a7ce85d3bc2d36ac
+      Hash: 7efc5608acac291b1ffde210a3999ce6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: GameUI
+    className: Shell
+  - hash:
+      serializedVersion: 2
+      Hash: d83f15d2ff4154cf0fc308bac4764907
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MuzzleFlash
   platform: 2
   scenePathNames:
+  - Assets/Scenes/MapGenerator.unity
   - Assets/Scenes/ShootingGame.unity
-  playerPath: /Users/joeyzhao/Desktop/game v0.1.app
+  playerPath: /Users/joeyzhao/Desktop/game v0.2.app
