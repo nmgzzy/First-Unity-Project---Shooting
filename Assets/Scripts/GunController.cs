@@ -5,14 +5,30 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public Transform weaponHold;
-    Gun equipedGun;
-    public Gun startingGun;
-    void Start() {
-        if (startingGun != null) {
-            EquipGun(startingGun);
+    public Gun equipedGun;
+    public Gun[] gunList;
+    int gunIndex = 0;
+    void Awake() {
+        if (gunList.GetLength(0) > 0) {
+            EquipGun(gunList[0]);
         }
-
     }
+
+    public void EquipLastGun()
+    {
+        gunIndex = gunIndex - 1;
+        if (gunIndex < 0) {
+            gunIndex = gunList.GetLength(0) - 1;
+        }
+        EquipGun(gunList[gunIndex]); 
+    }
+
+    public void EquipNextGun()
+    {
+        gunIndex = (gunIndex + 1) % gunList.GetLength(0);
+        EquipGun(gunList[gunIndex]); 
+    }
+
     public void EquipGun(Gun gunToEquip) 
     {
         if (equipedGun != null) {

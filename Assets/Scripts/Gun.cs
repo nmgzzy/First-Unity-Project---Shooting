@@ -13,7 +13,17 @@ public class Gun : MonoBehaviour
     AudioSource audioSource;
     Transform bullets;
     public AudioClip audioClip;
-
+    public Transform shell;
+    public Transform shellEjection;
+    [Tooltip("连发true，单发false")]
+    public bool shootMode;
+    MuzzleFlash muzzleFlash;
+    void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        bullets = GameObject.Find("Bullets").transform;
+        muzzleFlash = GetComponent<MuzzleFlash> ();
+    }
     public void Shoot()
     {
         if (Time.time > nextShootTime) {
@@ -22,17 +32,8 @@ public class Gun : MonoBehaviour
             newProjectile.SetSpeed(muzzleVelocity);
             newProjectile.SetDamage(damage);
             audioSource.PlayOneShot(audioClip);
+            Instantiate(shell, shellEjection.position, shellEjection.rotation);
+            muzzleFlash.Activate();
         }
     }
-    
-    void Start()
-    {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        bullets = GameObject.Find("Bullets").transform;
-    }
-
-    // void Update()
-    // {
-        
-    // }
 }

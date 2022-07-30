@@ -358,9 +358,11 @@
 "Assets/Scripts/IDamageable.cs"
 "Assets/Scripts/LivingEntity.cs"
 "Assets/Scripts/MapGenerator.cs"
+"Assets/Scripts/MuzzleFlash.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Projectile.cs"
+"Assets/Scripts/Shell.cs"
 "Assets/Scripts/Spawner.cs"
 "Assets/Scripts/Utility.cs"
 -langversion:9.0

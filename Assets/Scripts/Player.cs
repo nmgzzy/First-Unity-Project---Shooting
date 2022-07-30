@@ -13,6 +13,7 @@ public class Player : LivingEntity
     private Plane plane = new Plane(Vector3.up, new Vector3(0, 1, 0));
     GunController gunController;
     Rigidbody body;
+    bool shootMode;
 
     protected override void Start()
     {
@@ -21,6 +22,7 @@ public class Player : LivingEntity
         gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
         body = GetComponent<Rigidbody>();
+        shootMode = gunController.equipedGun.shootMode;
     }
 
     void Update()
@@ -41,8 +43,25 @@ public class Player : LivingEntity
         }
 
         //开枪输入
-        if (Input.GetMouseButton(0)){
-            gunController.Shoot();
+        if (shootMode) { //连发
+            if (Input.GetMouseButton(0)){
+                gunController.Shoot();
+            }
+        }
+        else {  //单发
+            if (Input.GetMouseButtonDown(0)){
+                gunController.Shoot();
+            }
+        }
+        
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0) {
+            gunController.EquipLastGun();
+            shootMode = gunController.equipedGun.shootMode;
+        }
+        else if (scroll < 0) {
+            gunController.EquipNextGun();
+            shootMode = gunController.equipedGun.shootMode;
         }
 
         //跳跃
