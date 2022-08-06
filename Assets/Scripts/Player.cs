@@ -10,10 +10,12 @@ public class Player : LivingEntity
     public float jumpForce = 5;
     PlayerController controller;
     Camera viewCamera;
-    private Plane plane = new Plane(Vector3.up, new Vector3(0, 1, 0));
+    private Plane plane = new Plane(Vector3.up, new Vector3(0, 1.3f, 0));
     GunController gunController;
     Rigidbody body;
     bool shootMode;
+    public CrossHairs crossHairs;
+
 
     protected override void Start()
     {
@@ -40,6 +42,8 @@ public class Player : LivingEntity
             Vector3 point = ray.GetPoint(rayDistance);
             // Debug.DrawLine(ray.origin, point, Color.red);
             controller.LookAt(point);
+            crossHairs.transform.position = point;
+            crossHairs.DetectTarget(ray);
         }
 
         //开枪输入
