@@ -6088,6 +6088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 338424636}
+  dotTransform: {fileID: 338424635}
   targetMask:
     serializedVersion: 2
     m_Bits: 128

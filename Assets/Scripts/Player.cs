@@ -15,7 +15,8 @@ public class Player : LivingEntity
     Rigidbody body;
     bool shootMode;
     public CrossHairs crossHairs;
-
+    public bool isAiming = false;
+    public float aimingTime;
 
     protected override void Start()
     {
@@ -55,7 +56,25 @@ public class Player : LivingEntity
         else {  //单发
             if (Input.GetMouseButtonDown(0)){
                 gunController.Shoot();
+                Time.timeScale = 1f;
+                isAiming = false;
             }
+        }
+
+        if (!shootMode) {
+            if (Input.GetMouseButtonDown(1)) {
+                Time.timeScale = 0.5f;
+                isAiming = true;
+                aimingTime = Time.time;
+            }
+            if (Input.GetMouseButtonUp(1)) {
+                Time.timeScale = 1f;
+                isAiming = false;
+            }
+        }
+        else {
+            Time.timeScale = 1f;
+            isAiming = false;
         }
         
         float scroll = Input.GetAxis("Mouse ScrollWheel");
