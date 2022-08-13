@@ -6498,7 +6498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 79.6}
+  m_AnchoredPosition: {x: 0, y: 195}
   m_SizeDelta: {x: 856.9, y: 298.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463970046
@@ -6526,17 +6526,20 @@ MonoBehaviour:
     F4:                          
     Restart game
 
-    WASD:                   Control player
+    WASD:                    Control player
 
-    Space:                                  
-    Jump
+    R:                                         
+    Reload
 
-    Scroll wheel:              Change weapon
+    Space:                                   Jump
 
-    Left mouse button:                  
-    Fire
+    Scroll wheel:            
+    Change weapon
 
-    Right mouth button:                   Aim'
+    Left mouse button:                   Fire
+
+    Right mouth
+    button:                   Aim'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18228,7 +18231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -211.4}
+  m_AnchoredPosition: {x: 0, y: -243.8}
   m_SizeDelta: {x: 266.9, y: 99.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423756386

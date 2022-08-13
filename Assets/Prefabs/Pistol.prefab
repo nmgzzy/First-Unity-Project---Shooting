@@ -231,7 +231,10 @@ MonoBehaviour:
   msBetweenShots: 200
   muzzleVelocity: 25
   damage: 10
-  audioClip: {fileID: 8300000, guid: 33f43dfea6b794f4a92ae33b8a495740, type: 3}
+  projectilePerMag: 7
+  reloadTime: 1
+  shootAudioClip: {fileID: 8300000, guid: 33f43dfea6b794f4a92ae33b8a495740, type: 3}
+  reloadAudioClip: {fileID: 8300000, guid: da2300b233c50496fa4d54c512ba070b, type: 3}
   shell: {fileID: 5369070057276327105, guid: 3eb4ede90b2ab4822be9069ed8ab36f4, type: 3}
   shellEjection: {fileID: 5873647986803774291}
   shootMode: 0
@@ -247,7 +250,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.124
+  m_Volume: 0.204
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -87,6 +87,10 @@ public class Player : LivingEntity
             shootMode = gunController.equipedGun.shootMode;
         }
 
+        if (Input.GetKeyDown(KeyCode.R)) {
+            gunController.equipedGun.Reload();
+        }
+
         //跳跃
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < 1.05f) {
             body.AddForce(Vector3.up * jumpForce);

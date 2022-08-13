@@ -9,31 +9,57 @@ public class Gun : MonoBehaviour
     public float msBetweenShots = 100;
     public float muzzleVelocity = 35;
     public float damage = 5;
+    public int projectilePerMag;
+    public float reloadTime;
     float nextShootTime;
     AudioSource audioSource;
     Transform bullets;
-    public AudioClip audioClip;
+    public AudioClip shootAudioClip;
+    public AudioClip reloadAudioClip;
     public Transform shell;
     public Transform shellEjection;
     [Tooltip("连发true，单发false")]
     public bool shootMode;
     MuzzleFlash muzzleFlash;
+    int projectileRemainging;
+    bool isReloading;
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         bullets = GameObject.Find("Bullets").transform;
         muzzleFlash = GetComponent<MuzzleFlash> ();
+        projectileRemainging = projectilePerMag;
     }
     public void Shoot()
     {
-        if (Time.time > nextShootTime) {
+        if (!isReloading && Time.time > nextShootTime && projectileRemainging > 0) {
             nextShootTime = Time.time + msBetweenShots / 1000;
+            projectileRemainging--;
             Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation, bullets);
             newProjectile.SetSpeed(muzzleVelocity);
             newProjectile.SetDamage(damage);
-            audioSource.PlayOneShot(audioClip);
+            audioSource.PlayOneShot(shootAudioClip);
             Instantiate(shell, shellEjection.position, shellEjection.rotation);
             muzzleFlash.Activate();
+            if (projectileRemainging <= 0) {
+                Reload();
+            }
         }
+    }
+
+    public void Reload()
+    {
+        if (!isReloading) {
+            StartCoroutine(AnimateReload());
+        }
+    }
+
+    IEnumerator AnimateReload()
+    {
+        isReloading = true;
+        audioSource.PlayOneShot(reloadAudioClip);
+        yield return new WaitForSeconds(reloadTime);
+        isReloading = false;
+        projectileRemainging = projectilePerMag;
     }
 }

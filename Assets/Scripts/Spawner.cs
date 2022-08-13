@@ -58,6 +58,8 @@ public class Spawner : MonoBehaviour
         }
         tileMat.color = initialColor;
         Enemy spawnedEnemy = Instantiate(enemy, randomTile.position + Vector3.up, Quaternion.identity, enemies) as Enemy;
+        spawnedEnemy.startingHealth = currentWave.enemyHealth;
+        spawnedEnemy.damage = currentWave.enemyDamage;
         spawnedEnemy.OnDeath += OnEnemyDeath;
     }
 
@@ -98,5 +100,7 @@ public class Spawner : MonoBehaviour
     {
         public int enemyCount;
         public float timeBetweenSpawns;
+        public float enemyHealth;
+        public float enemyDamage;
     }
 }
