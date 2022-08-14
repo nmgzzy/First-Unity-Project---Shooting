@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        if (!isReloading) {
+        if (!isReloading && projectileRemainging != projectilePerMag) {
             StartCoroutine(AnimateReload());
         }
     }

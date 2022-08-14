@@ -235,9 +235,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7622}
     - Class: 114
-      Script: {instanceID: 7960}
+      Script: {instanceID: 7886}
     - Class: 114
-      Script: {instanceID: 31786}
+      Script: {instanceID: 7962}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -569,7 +569,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 5cf82c95bb9595f87f0c3e5396ee67ad
+      Hash: b4467a5b209f791e555b4a818931651f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun
@@ -827,7 +827,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: a8745dc000e3f91b71bd0efc4e189b78
+      Hash: a9ad1e467ab058205b596ffb3492b65d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -1055,7 +1055,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 562549c2f169338de7896d5d182361a0
+      Hash: 1d69b8a776c178accc83c002cb5cfb8b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1083,6 +1083,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.State.dll
     namespaceName: Unity.VisualScripting
     className: StateMachine
+  - hash:
+      serializedVersion: 2
+      Hash: eafeb4d4a6f748e68374444b80fd5613
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CrossHairs
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1131,14 +1137,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 88c13403590ebb1b869d28e5bcf76ba4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CrossHairs
   platform: 19
   scenePathNames:
   - Assets/Scenes/MapGenerator.unity
   - Assets/Scenes/ShootingGame.unity
-  playerPath: /Users/joeyzhao/Desktop/Game v0.3/First project - Shooting.exe
+  playerPath: /Users/joeyzhao/Documents/develop/game/First project - Shooting.exe
